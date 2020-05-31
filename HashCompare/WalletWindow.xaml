@@ -1,0 +1,34 @@
+﻿<Window x:Class="HashCompare.WalletWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HashCompare"
+        mc:Ignorable="d"
+        Title="WalletWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Create Transaction" HorizontalAlignment="Center" Margin="322,363,320,0" VerticalAlignment="Top" Width="150" Height="32" FontSize="15" FontWeight="Bold" Click="MakeTransaction"/>
+        <TextBox x:Name="txtAddr" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="280,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="400" Padding="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="220,60,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Padding="3"/>
+        <TextBox x:Name="txtAmount" HorizontalAlignment="Left" Height="30" Margin="80,60,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Padding="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,60,0,0" TextWrapping="Wrap" Text="Amount:" VerticalAlignment="Top" Padding="3"/>
+        <TextBox x:Name="txtPubKey" HorizontalAlignment="Left" IsReadOnly="True" Height="30" Margin="100,105,0,0"  VerticalAlignment="Top" Width="580" Padding="3"/>
+        <TextBlock x:Name="txtReceiver" HorizontalAlignment="Left" Margin="20,106,0,0" TextWrapping="Wrap" Text="Public Key:" VerticalAlignment="Top" Padding="3"/>
+        <Button Content="Check Balance" Click="CheckBalance" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top" Width="150" Height="25" FontSize="15" FontWeight="Bold" />
+        <TextBlock x:Name="txtTotal" HorizontalAlignment="Left" Height="25" Margin="208,20,0,0" TextWrapping="Wrap" Text=": 00 KCoin" VerticalAlignment="Top" Width="120" FontSize="15" FontWeight="Bold"/>
+        <Button Content="New Address" Click="NewAddress" HorizontalAlignment="Left" Margin="600,20,0,0" VerticalAlignment="Top" Width="150" Height="25" FontSize="15" FontWeight="Bold" />
+        <Button Content="Parse" Click="Button_Click_1" HorizontalAlignment="Left" Margin="680,60,0,0" VerticalAlignment="Top" Width="65" Height="30"/>
+        <Button Content="Parse" Click="Button_Click_2" HorizontalAlignment="Left" Margin="680,105,0,0" VerticalAlignment="Top" Width="65" Height="30"/>
+        <ListView x:Name="lvOutput" HorizontalAlignment="Left" Height="168" Margin="20,180,0,0" VerticalAlignment="Top" Width="725">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Amount" Width="100" DisplayMemberBinding="{Binding Amount}" />
+                    <GridViewColumn Header="Address" Width="250" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="Public Key" Width="350" DisplayMemberBinding="{Binding PublicKey}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Add Address" Click="AddAddress" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="141" Height="25" FontSize="13" FontWeight="Bold" />
+        <Button Content="Clear All Address" Click="ClearAllAddress" HorizontalAlignment="Center" Margin="600,145,51,0" VerticalAlignment="Top" Width="141" Height="25" FontSize="13" FontWeight="Bold" />
+    </Grid>
+</Window>

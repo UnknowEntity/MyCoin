@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UserInfo>
+  <Http>http://localhost:3000//</Http>
+  <Keys>
+    <Key>
+      <DateCreated>00</DateCreated>
+      <PrivateKey>00</PrivateKey>
+      <PublicKey>00</PublicKey>
+      <Address type="change" isConfirm="false" amount="00" unSpend="true">00</Address>
+      <TransactionId>00</TransactionId>
+      <Index>00</Index>
+    </Key>
+  </Keys>
+</UserInfo>
