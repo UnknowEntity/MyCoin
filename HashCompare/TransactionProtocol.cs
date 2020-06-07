@@ -23,7 +23,7 @@ namespace HashCompare
             Response = "";
         }
         
-        public async Task MakeTransaction(Transaction transaction)
+        public async Task<bool> MakeTransaction(Transaction transaction)
         {
            
 
@@ -34,6 +34,15 @@ namespace HashCompare
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             Response = await PostTask(content, "transaction");
+            TransactionResponse transactionResponse = JsonConvert.DeserializeObject<TransactionResponse>(Response);
+
+            if (transactionResponse.Status=="valid")
+            {
+                XmlManager.SaveTransaction(transactionResponse.Id);
+                return true;
+            }
+
+            return false;
             
         }
 
@@ -55,6 +64,25 @@ namespace HashCompare
 
             XmlManager.SetUnconfirm(get);
             
+        }
+
+        public async Task<TransactionJSON[]> GetAllTransaction()
+        {
+            List<string> data = XmlManager.GetAllTransaction();
+
+
+
+            var myData = JsonConvert.SerializeObject(data);
+            var buff = Encoding.UTF8.GetBytes(myData);
+            var content = new ByteArrayContent(buff);
+
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            Response = await PostTask(content, "gettransaction");
+
+            TransactionJSON[] get = JsonConvert.DeserializeObject<TransactionJSON[]>(Response);
+
+            return get;
         }
 
 

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="HashCompare.User_Controls.TransactionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HashCompare.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="700" Width="700">
+    <Grid>
+        <TextBox x:Name="txtTransactionId" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" VerticalAlignment="Top" />
+        <TextBox x:Name="txtTimestamp" IsReadOnly="True" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="00000000000000000" VerticalAlignment="Top" />
+        <TextBox x:Name="txtType" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="00000000000000000" VerticalAlignment="Top" Margin="0,30,0,0" />
+        <Grid x:Name="gContent" Margin="0,60,0,0">
+            
+        </Grid>
+    </Grid>
+</UserControl>

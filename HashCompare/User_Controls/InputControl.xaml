@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HashCompare.User_Controls.InputControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HashCompare.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="310">
+    <Grid>
+        <TextBox x:Name="txtInputAddress" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="000000000000000000000000000" VerticalAlignment="Top" />
+        <TextBox x:Name="txtSignature" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="0,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="310" FontSize="8" FontWeight="Bold" Padding="4">
+            00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        </TextBox>
+    </Grid>
+</UserControl>

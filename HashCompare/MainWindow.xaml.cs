@@ -19,6 +19,7 @@ using System.Net.Http.Headers;
 using System.Xml.Linq;
 using System.IO;
 using Secp256k1Net;
+using System.Threading;
 
 namespace HashCompare
 {
@@ -28,40 +29,11 @@ namespace HashCompare
     public partial class MainWindow : Window
     {
         
-        //string filePath = AppDomain.CurrentDomain.BaseDirectory + "\\UserInfo.xml";
 
         public MainWindow()
         {
             InitializeComponent();
-            //var doc = new XDocument();
-
-            //if (File.Exists(filePath))
-            //{
-            //    doc = XDocument.Load(filePath);
-            //    if (doc.Element("UserInfo").Element("DateCreated").Value!="00")
-            //    {
-            //        txtResult.Text = "Private Key Found";
-            //        WalletWindow wallet = new WalletWindow();
-            //        wallet.Show();
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        txtResult.Text = "Private Key Not Found";
-            //    }
-            //}
-            //else
-            //{
-            //    doc.Add(new XDeclaration("1.0", "utf-8", "yes"));
-            //    XElement root = new XElement("UserInfo");
-            //    root.Add(new XElement("DateCreated", "00"));
-            //    root.Add(new XElement("PrivateKey", "00"));
-            //    root.Add(new XElement("PublicKey", "00"));
-            //    root.Add(new XElement("ChainCode", "00"));
-            //    root.Add(new XElement("Index", "00"));
-            //    doc.Add(root);
-            //    doc.Save(filePath);
-            //}
+            
 
             if(XmlManager.IsExist())
             {
@@ -72,43 +44,36 @@ namespace HashCompare
             else
             {
                 XmlManager.NewXmlFile();
+                txtResult.Text = "Welcome new user!\n Currently generate your first address!\nPlease don't close window";
+
+                bool result = Task.Run(async () =>
+                {
+                    Transaction transaction = new Transaction();
+
+                    TransactionProtocol protocol = new TransactionProtocol();
+                    return await protocol.MakeTransaction(transaction);
+                    
+
+                }).GetAwaiter().GetResult();
+
+                if (result==false)
+                {
+                    txtResult.Text = "Cannot send key to host";
+                }
+                else
+                {
+                    txtResult.Text = "You create your first transaction";
+                }
+
+                Thread.Sleep(2000);
+
+                WalletWindow wallet = new WalletWindow();
+                wallet.Show();
+                this.Close();
             }
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //txtResult.Text = "GENERATE KEY PAIR";
 
-
-            //var privateKey = CryptoCurrency.Hash32Byte();
-            //var chainCode = CryptoCurrency.Hash32Byte();
-
-            //string privateKeyStr = CryptoCurrency.ByteArrayToString(privateKey);
-            //string chainCodeStr = CryptoCurrency.ByteArrayToString(chainCode);
-
-            //var publicKey = CryptoCurrency.GetPublicKey(privateKey);
-
-            //string publicKeyStr = CryptoCurrency.ByteArrayToString(publicKey);
-            //string address = CryptoCurrency.Sha1(publicKey);
-            //XmlManager.NewKey(privateKeyStr, publicKeyStr, address, "first");
-            //XDocument document = XDocument.Load(filePath);
-            //document.Element("UserInfo").Element("DateCreated").Value = DateTime.Now.ToLongDateString();
-            //document.Element("UserInfo").Element("PrivateKey").Value = privateKeyStr;
-            //document.Element("UserInfo").Element("PublicKey").Value = publicKeyStr;
-            //document.Element("UserInfo").Element("ChainCode").Value = chainCodeStr;
-            //document.Save(filePath);
-
-            Transaction transaction = new Transaction();
-
-            TransactionProtocol protocol = new TransactionProtocol();
-            await protocol.MakeTransaction(transaction);
-            txtResult.Text = protocol.Response;
-
-            WalletWindow wallet = new WalletWindow();
-            wallet.Show();
-            this.Close();
-
-        }
 
         
     }

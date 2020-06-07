@@ -30,5 +30,6 @@
         </ListView>
         <Button Content="Add Address" Click="AddAddress" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="141" Height="25" FontSize="13" FontWeight="Bold" />
         <Button Content="Clear All Address" Click="ClearAllAddress" HorizontalAlignment="Center" Margin="600,145,51,0" VerticalAlignment="Top" Width="141" Height="25" FontSize="13" FontWeight="Bold" />
+        <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="521,363,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

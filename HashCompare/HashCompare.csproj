@@ -115,8 +115,23 @@
     </Compile>
     <Compile Include="Output.cs" />
     <Compile Include="ResponseClass.cs" />
+    <Compile Include="SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionDetailsWindow.xaml.cs">
+      <DependentUpon>TransactionDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TransactionProtocol.cs" />
+    <Compile Include="User_Controls\InputControl.xaml.cs">
+      <DependentUpon>InputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\OutputControl.xaml.cs">
+      <DependentUpon>OutputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\TransactionControl.xaml.cs">
+      <DependentUpon>TransactionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WalletWindow.xaml.cs">
       <DependentUpon>WalletWindow.xaml</DependentUpon>
     </Compile>
@@ -134,6 +149,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewKeyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransactionDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User_Controls\InputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User_Controls\OutputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User_Controls\TransactionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

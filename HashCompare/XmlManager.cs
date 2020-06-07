@@ -51,8 +51,10 @@ namespace HashCompare
         {
             XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             XElement root = new XElement("UserInfo");
-            root.Add(new XElement("Http","http://localhost:3000/"));
+            //root.Add(new XElement("Http", "https://blockchain-node-01.herokuapp.com/"));
+            root.Add(new XElement("Http", "http://localhost:3000/"));
             root.Add(new XElement("Keys"));
+            root.Add(new XElement("Transactions"));
             document.Add(root);
             document.Save(filePath);
         }
@@ -194,6 +196,26 @@ namespace HashCompare
             }
 
             doc.Save(filePath);
+        }
+
+        public static void SaveTransaction(string id)
+        {
+            XDocument doc = XDocument.Load(filePath);
+            doc.Element("UserInfo").Element("Transactions").Add(new XElement("Transaction", id));
+            doc.Save(filePath);
+        }
+
+        public static List<string> GetAllTransaction()
+        {
+            List<string> idArray = new List<string>();
+            XDocument doc = XDocument.Load(filePath);
+            var transactions = doc.Element("UserInfo").Element("Transactions").Elements("Transaction");
+            foreach(XElement transaction in transactions)
+            {
+                idArray.Add(transaction.Value);
+            }
+
+            return idArray;
         }
     }
 }

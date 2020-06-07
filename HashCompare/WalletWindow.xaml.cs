@@ -31,9 +31,13 @@ namespace HashCompare
         {
             InitializeComponent();
 
-            //Task task = GetTotalBalance();
+            Task.Run(async () =>
+            {
+                await GetTotalBalance();
+                var stringCoin = $": {XmlManager.GetCurrentTotal().ToString()} KCoin";
 
-            //task.Wait();
+                txtTotal.Text = stringCoin;
+            });
         }
 
         private async void MakeTransaction(object sender, RoutedEventArgs e)
@@ -79,10 +83,6 @@ namespace HashCompare
             var stringCoin = $": {XmlManager.GetCurrentTotal().ToString()} KCoin";
 
             txtTotal.Text = stringCoin;
-            //Dispatcher.Invoke(() =>
-            //{
-            //    txtTotal.Text = stringCoin;
-            //});
         }
 
         private async Task GetTotalBalance()
@@ -131,6 +131,15 @@ namespace HashCompare
             Outputs.Clear();
             lvOutput.ItemsSource = null;
             lvOutput.ItemsSource = Outputs;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TransactionProtocol protocol = new TransactionProtocol();
+            TransactionJSON[] transactionJSONs = await protocol.GetAllTransaction();
+
+            TransactionDetailsWindow transactionDetails = new TransactionDetailsWindow(transactionJSONs);
+            transactionDetails.Show();
         }
     }
 }
