@@ -8,9 +8,9 @@
         Title="TransactionDetailsWindow" Height="450" Width="800">
     <Grid>
         <ScrollViewer HorizontalAlignment="Center" Height="282" Margin="0,10,0,0" VerticalAlignment="Top" Width="720">
-            <Grid x:Name="gTransactionList" Width="auto" Height="auto">
+            <StackPanel x:Name="gTransactionList" >
                 
-            </Grid>
+            </StackPanel>
         </ScrollViewer>
 
     </Grid>

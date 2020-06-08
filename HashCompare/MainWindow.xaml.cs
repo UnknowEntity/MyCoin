@@ -35,8 +35,27 @@ namespace HashCompare
             InitializeComponent();
             
 
-            if(XmlManager.IsExist())
+            
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (XmlManager.IsExist())
             {
+                List<string> adviceList = new List<string>()
+                {
+                    "You should remove spend address so that the program may run faster",
+                    "You should only use each address once",
+                    "Your private key is in the UserInfo.xml file"
+                };
+
+                Random r = new Random();
+                int rInt = r.Next(0, 3); //for ints
+
+                txtResult.Text = adviceList[rInt];
+
+                await Task.Delay(2000);
+
                 WalletWindow wallet = new WalletWindow();
                 wallet.Show();
                 this.Close();
@@ -45,18 +64,13 @@ namespace HashCompare
             {
                 XmlManager.NewXmlFile();
                 txtResult.Text = "Welcome new user!\n Currently generate your first address!\nPlease don't close window";
+                Transaction transaction = new Transaction();
 
-                bool result = Task.Run(async () =>
-                {
-                    Transaction transaction = new Transaction();
+                TransactionProtocol protocol = new TransactionProtocol();
+                TransactionResponse result = await protocol.MakeTransaction(transaction);
+                
 
-                    TransactionProtocol protocol = new TransactionProtocol();
-                    return await protocol.MakeTransaction(transaction);
-                    
-
-                }).GetAwaiter().GetResult();
-
-                if (result==false)
+                if (result.Status == "invalid")
                 {
                     txtResult.Text = "Cannot send key to host";
                 }
@@ -65,16 +79,12 @@ namespace HashCompare
                     txtResult.Text = "You create your first transaction";
                 }
 
-                Thread.Sleep(2000);
+                await Task.Delay(2000);
 
                 WalletWindow wallet = new WalletWindow();
                 wallet.Show();
                 this.Close();
             }
         }
-
-
-
-        
     }
 }

@@ -25,14 +25,12 @@ namespace HashCompare.User_Controls
             InitializeComponent();
         }
 
-        public TransactionControl(TransactionJSON transactionJSON,double currentHeight)
+        public TransactionControl(TransactionJSON transactionJSON)
         {
             InitializeComponent();
 
             Width = 700;
-
-            double esInHeight = 0;
-            double esOuHeight = 0;
+            
             txtTransactionId.Text = transactionJSON.Id;
             txtTimestamp.Text = transactionJSON.Timestamp.ToString();
             txtType.Text = transactionJSON.Type;
@@ -44,28 +42,21 @@ namespace HashCompare.User_Controls
                 for(int index = 0; index<transactionJSON.Inputs.Count();index++)
                 {
                     InputJSON input = transactionJSON.Inputs[index];
-                    InputControl inputControl = new InputControl(input.Address, input.Signature, index);
-                    esInHeight += inputControl.Height;
-                    gContent.Children.Add(inputControl);
+                    InputControl inputControl = new InputControl(input.Address, input.Signature);
+                    spInputs.Children.Add(inputControl);
                 }
             }
 
             for (int index = 0; index < transactionJSON.Outputs.Count(); index++)
             {
                 OutputJSON output = transactionJSON.Outputs[index];
-                OutputControl outputControl = new OutputControl(output.Amount, output.Address, output.PublicKey, index);
-                esOuHeight += outputControl.Height;
-                gContent.Children.Add(outputControl);
+                OutputControl outputControl = new OutputControl(output.Amount, output.Address, output.PublicKey);
+                spOutputs.Children.Add(outputControl);
             }
+            
+            
 
-            double totalHeight = esInHeight > esOuHeight ? esInHeight : esOuHeight;
-
-            Height = totalHeight + 70;
-            Thickness margin = this.Margin;
-            margin.Top = currentHeight + 5;
-
-
-            this.Margin = margin;
+            
         }
     }
 }

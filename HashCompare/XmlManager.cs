@@ -217,5 +217,24 @@ namespace HashCompare
 
             return idArray;
         }
+
+        public static List<string> GetAllSpend()
+        {
+            XDocument doc = XDocument.Load(filePath);
+            List<XElement> elements = new List<XElement>(doc.Element("UserInfo").Element("Keys").Elements("Key"));
+            
+            List<string> result = new List<string>();
+
+            foreach (XElement element in elements)
+            {
+                XElement temp = element.Element("Address");
+                if (temp.Attribute("unSpend").Value == "false")
+                {
+                    result.Add(temp.Value);
+                }
+            }
+
+            return result;
+        }
     }
 }

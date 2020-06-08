@@ -27,6 +27,8 @@ namespace HashCompare
         public string Status { set; get; }
         [JsonProperty("id")]
         public string Id { set; get; }
+        [JsonProperty("message")]
+        public string Message { set; get; }
     }
 
     public class InputJSON
@@ -59,6 +61,15 @@ namespace HashCompare
         public string Type { set; get; }
         [JsonProperty("timestamp")]
         public Int64 Timestamp { set; get; }
+    }
+
+    public class Address
+    {
+        public string Name { set; get; }
+        public float Amount { set; get; }
+        public string Type { set; get; }
+        public bool UnSpend { set; get; }
+        public bool IsConfirm { set; get; }
     }
 
     class ResponseClass

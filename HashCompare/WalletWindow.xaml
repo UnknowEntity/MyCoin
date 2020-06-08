@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HashCompare"
         mc:Ignorable="d"
-        Title="WalletWindow" Height="450" Width="800">
+        Title="WalletWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Button Content="Create Transaction" HorizontalAlignment="Center" Margin="322,363,320,0" VerticalAlignment="Top" Width="150" Height="32" FontSize="15" FontWeight="Bold" Click="MakeTransaction"/>
         <TextBox x:Name="txtAddr" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="280,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="400" Padding="3"/>
@@ -17,8 +17,12 @@
         <Button Content="Check Balance" Click="CheckBalance" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top" Width="150" Height="25" FontSize="15" FontWeight="Bold" />
         <TextBlock x:Name="txtTotal" HorizontalAlignment="Left" Height="25" Margin="208,20,0,0" TextWrapping="Wrap" Text=": 00 KCoin" VerticalAlignment="Top" Width="120" FontSize="15" FontWeight="Bold"/>
         <Button Content="New Address" Click="NewAddress" HorizontalAlignment="Left" Margin="600,20,0,0" VerticalAlignment="Top" Width="150" Height="25" FontSize="15" FontWeight="Bold" />
-        <Button Content="Parse" Click="Button_Click_1" HorizontalAlignment="Left" Margin="680,60,0,0" VerticalAlignment="Top" Width="65" Height="30"/>
-        <Button Content="Parse" Click="Button_Click_2" HorizontalAlignment="Left" Margin="680,105,0,0" VerticalAlignment="Top" Width="65" Height="30"/>
+        <Button Click="Button_Click_1" HorizontalAlignment="Left" Margin="680,60,0,0" VerticalAlignment="Top" Width="65" Height="30">
+            <Image Source="/Resouces/Paste.png"/>
+        </Button>
+        <Button  Click="Button_Click_2" HorizontalAlignment="Left" Margin="680,105,0,0" VerticalAlignment="Top" Width="65" Height="30">
+            <Image Source="/Resouces/Paste.png"/>
+        </Button>
         <ListView x:Name="lvOutput" HorizontalAlignment="Left" Height="168" Margin="20,180,0,0" VerticalAlignment="Top" Width="725">
             <ListView.View>
                 <GridView>
@@ -30,6 +34,10 @@
         </ListView>
         <Button Content="Add Address" Click="AddAddress" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Width="141" Height="25" FontSize="13" FontWeight="Bold" />
         <Button Content="Clear All Address" Click="ClearAllAddress" HorizontalAlignment="Center" Margin="600,145,51,0" VerticalAlignment="Top" Width="141" Height="25" FontSize="13" FontWeight="Bold" />
-        <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="521,363,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Click="Button_Click" Content="Transaction List" HorizontalAlignment="Left" Margin="30,148,0,0" VerticalAlignment="Top" Width="141" Height="25" FontWeight="Bold" FontSize="13"/>
+        <Button  HorizontalAlignment="Left" Margin="20,365,0,0" VerticalAlignment="Top" Width="35" Height="35" BorderThickness="0" Background="White" Click="SetHost" >
+            <Image Source="/Resouces/Setting.png"/>
+        </Button>
+
     </Grid>
 </Window>

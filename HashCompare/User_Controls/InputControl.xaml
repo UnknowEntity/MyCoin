@@ -5,11 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HashCompare.User_Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="310">
+             d:DesignHeight="30" d:DesignWidth="260">
     <Grid>
-        <TextBox x:Name="txtInputAddress" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="000000000000000000000000000" VerticalAlignment="Top" />
-        <TextBox x:Name="txtSignature" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="0,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="310" FontSize="8" FontWeight="Bold" Padding="4">
-            00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-        </TextBox>
+        <TextBox x:Name="txtInputAddress" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="000000000000000000000000000" VerticalAlignment="Top" Margin="76,0,0,0" />
+        <TextBlock Background="White"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Width="76" Height="23"/>
     </Grid>
 </UserControl>

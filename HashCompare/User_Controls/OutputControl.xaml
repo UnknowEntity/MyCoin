@@ -5,12 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HashCompare.User_Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="310">
+             d:DesignHeight="50" d:DesignWidth="380">
     <Grid>
-        <TextBox x:Name="txtInputAmount" IsReadOnly="True" HorizontalAlignment="Left" Height="20"  Text="000000000000000000000000000" VerticalAlignment="Top" />
-        <TextBox x:Name="txtInputAddress" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MMMMMMMMMMMMMMMMMMMMMMMMMMM" VerticalAlignment="Top" Margin="0,22,0,0"/>
-        <TextBox x:Name="txtPublicKey" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="0,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="310" FontSize="8" FontWeight="Bold" Padding="4">
-            00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-        </TextBox>
+        <TextBox BorderThickness="0" x:Name="txtInputAmount" IsReadOnly="True" HorizontalAlignment="Left" Height="20"  Text="000000000000000000000000000" VerticalAlignment="Top" Margin="85,0,0,0" />
+        <TextBox BorderThickness="0" x:Name="txtInputAddress" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MMMMMMMMMMMMMMMMMMMMMMMMMMM" VerticalAlignment="Top" Margin="85,20,0,0"/>
+        <TextBlock  Background="White" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Amount:" VerticalAlignment="Top" Height="20" Width="85"/>
+        <TextBlock  Background="White" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Height="23" Width="85" Margin="0,20,0,0"/>
     </Grid>
 </UserControl>

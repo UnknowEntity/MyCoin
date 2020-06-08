@@ -26,18 +26,12 @@ namespace HashCompare
     public partial class WalletWindow : Window
     {
         List<Output> Outputs = new List<Output>();
+        SettingWindow Setting = null;
 
         public WalletWindow()
         {
             InitializeComponent();
 
-            Task.Run(async () =>
-            {
-                await GetTotalBalance();
-                var stringCoin = $": {XmlManager.GetCurrentTotal().ToString()} KCoin";
-
-                txtTotal.Text = stringCoin;
-            });
         }
 
         private async void MakeTransaction(object sender, RoutedEventArgs e)
@@ -69,7 +63,12 @@ namespace HashCompare
             Transaction transaction = new Transaction(Outputs);
 
             TransactionProtocol protocol = new TransactionProtocol();
-            await protocol.MakeTransaction(transaction);
+            TransactionResponse response = await protocol.MakeTransaction(transaction);
+
+            if (response.Status=="invalid")
+            {
+                MessageBox.Show(response.Message, "Error");
+            }
 
             Outputs.Clear();
             lvOutput.ItemsSource = null;
@@ -106,7 +105,12 @@ namespace HashCompare
         {
             string currentAddress = txtAddr.Text;
             int[] currentPublicKey = CryptoCurrency.ByteArrayToIntArray(CryptoCurrency.StringToByteArray(txtPubKey.Text));
-            float currentAmount = float.Parse(txtAmount.Text);
+            float currentAmount;
+            if (!float.TryParse(txtAmount.Text,out currentAmount))
+            {
+                MessageBox.Show("Amount must be a float","Error");
+                return;
+            }
             Outputs.Add(new Output(currentAddress, currentPublicKey, currentAmount));
             lvOutput.ItemsSource = null;
             lvOutput.ItemsSource = Outputs;
@@ -140,6 +144,27 @@ namespace HashCompare
 
             TransactionDetailsWindow transactionDetails = new TransactionDetailsWindow(transactionJSONs);
             transactionDetails.Show();
+        }
+
+        private void SetHost(object sender, RoutedEventArgs e)
+        {
+            if(Setting==null)
+            {
+                Setting = new SettingWindow();
+                Setting.Show();
+            }
+            else
+            {
+                Setting.Focus();
+            }
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await GetTotalBalance();
+            var stringCoin = $": {XmlManager.GetCurrentTotal().ToString()} KCoin";
+
+            txtTotal.Text = stringCoin;
         }
     }
 }

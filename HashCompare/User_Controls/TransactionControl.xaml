@@ -7,11 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="700" Width="700">
     <Grid>
-        <TextBox x:Name="txtTransactionId" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" VerticalAlignment="Top" />
-        <TextBox x:Name="txtTimestamp" IsReadOnly="True" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="00000000000000000" VerticalAlignment="Top" />
-        <TextBox x:Name="txtType" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="00000000000000000" VerticalAlignment="Top" Margin="0,30,0,0" />
-        <Grid x:Name="gContent" Margin="0,60,0,0">
-            
-        </Grid>
+        <TextBox x:Name="txtTransactionId" FontSize="10" FontWeight="Bold" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" VerticalAlignment="Top" Margin="90,0,0,0" />
+        <TextBox x:Name="txtTimestamp" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="00000000000000000" VerticalAlignment="Top" />
+        <TextBox x:Name="txtType" BorderThickness="0" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="00000000000000000" VerticalAlignment="Top" Margin="90,23,0,0" />
+        <StackPanel x:Name="spInputs" HorizontalAlignment="Left"  Margin="0,50,0,0"  VerticalAlignment="Top" Width="260">
+
+        </StackPanel>
+        <StackPanel x:Name="spOutputs" HorizontalAlignment="Right"  Margin="0,50,0,0" VerticalAlignment="Top" Width="380">
+
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Transaction ID:" Background="White" VerticalAlignment="Top" Height="23" Width="90"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Type:" Background="White" VerticalAlignment="Top" Height="23" Width="90" Margin="0,23,0,0"/>
+        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Time Stamp:" Background="White" VerticalAlignment="Top" Height="23" Width="90" Margin="0,0,114,0"/>
+
     </Grid>
 </UserControl>

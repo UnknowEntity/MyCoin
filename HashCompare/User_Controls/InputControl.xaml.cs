@@ -25,22 +25,15 @@ namespace HashCompare.User_Controls
             InitializeComponent();
         }
 
-        public InputControl(string address, string signature, int index)
+        public InputControl(string address, string signature)
         {
             InitializeComponent();
             txtInputAddress.Text = address;
-            txtSignature.Text = signature;
-            Height = 60;
-            Width = 310;
+            Height = 30;
+            Width = 260;
             HorizontalAlignment = HorizontalAlignment.Left;
             VerticalAlignment = VerticalAlignment.Top;
-
-            Thickness margin = this.Margin;
-            margin.Left = 0;
-            margin.Top = Height*index+5;
             
-
-            this.Margin = margin;
         }
     }
 }

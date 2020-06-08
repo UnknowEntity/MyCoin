@@ -28,13 +28,11 @@ namespace HashCompare
         public TransactionDetailsWindow(TransactionJSON[] transactionJSONs)
         {
             InitializeComponent();
-            double currentHeight = 0;
 
             foreach(TransactionJSON transactionJSON in transactionJSONs)
             {
-                TransactionControl transactionControl = new TransactionControl(transactionJSON, currentHeight);
+                TransactionControl transactionControl = new TransactionControl(transactionJSON);
                 gTransactionList.Children.Add(transactionControl);
-                currentHeight += transactionControl.Height;
             }
         }
     }

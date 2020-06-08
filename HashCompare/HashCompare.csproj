@@ -60,6 +60,9 @@
     <Reference Include="Base58Check, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Base58Check.0.2.0\lib\Net40\Base58Check.dll</HintPath>
     </Reference>
+    <Reference Include="EasyAsyncCancel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyAsyncCancel.1.1.0\lib\netstandard2.0\EasyAsyncCancel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.4\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
@@ -206,6 +209,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="UserInfo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resouces\Setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resouces\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resouces\Paste.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Secp256k1.Net.0.1.55\build\Secp256k1.Net.targets" Condition="Exists('..\packages\Secp256k1.Net.0.1.55\build\Secp256k1.Net.targets')" />

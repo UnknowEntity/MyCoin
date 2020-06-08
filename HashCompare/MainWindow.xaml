@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HashCompare"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="400">
+        Title="MainWindow" Height="250" Width="400" Loaded="Window_Loaded">
     <Grid>
-        <TextBox x:Name="txtResult" IsReadOnly="True"  FontSize="19" HorizontalAlignment="Center" Height="64" Margin="0,60,0,0" TextWrapping="Wrap" Text="Checking Private Key" VerticalAlignment="Top" Width="182" HorizontalContentAlignment="Center" BorderThickness="0"/>
+        <TextBox x:Name="txtResult" IsReadOnly="True"  FontSize="19" HorizontalAlignment="Center"  Margin="0,60,0,0" TextWrapping="Wrap" Text="Checking Private Key" VerticalAlignment="Top" Width="182" HorizontalContentAlignment="Center" BorderThickness="0"/>
 
     </Grid>
 </Window>

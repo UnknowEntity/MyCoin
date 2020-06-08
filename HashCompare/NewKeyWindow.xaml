@@ -12,8 +12,12 @@
         <Button Content="Close" Click="Button_Click" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
         <TextBlock Padding="5" FontSize="15" HorizontalAlignment="Left" Margin="42,38,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Height="35"/>
         <TextBlock Padding="5" FontSize="15" HorizontalAlignment="Left" Margin="42,110,0,0" TextWrapping="Wrap" Text="Public Key:" VerticalAlignment="Top" Height="35"/>
-        <Button Content="Copy" Click="Button_Click_1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="703,38,0,0" VerticalAlignment="Top" Width="49" Height="35"/>
-        <Button Content="Copy" Click="Button_Click_2" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="703,110,0,0" VerticalAlignment="Top" Width="49" Height="35"/>
+        <Button  Click="Button_Click_1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="703,38,0,0" VerticalAlignment="Top" Width="49" Height="35">
+            <Image Source="/Resouces/Copy.png"/>
+        </Button>
+        <Button Click="Button_Click_2" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="703,110,0,0" VerticalAlignment="Top" Width="49" Height="35">
+            <Image Source="/Resouces/Copy.png"/>
+        </Button>
 
     </Grid>
 </Window>

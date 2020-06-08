@@ -27,7 +27,7 @@ namespace HashCompare
             Span<float> changeSpan = change.AsSpan();
             List<Input> inputs = XmlManager.GetTotal(total, change);
 
-            XmlManager.SetSpend(inputs);
+            
 
             if (change[0]==0)
             {

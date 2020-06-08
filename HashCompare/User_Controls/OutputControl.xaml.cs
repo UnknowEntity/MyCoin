@@ -25,24 +25,17 @@ namespace HashCompare.User_Controls
             InitializeComponent();
         }
 
-        public OutputControl(float amount, string address, string publicKey,int index)
+        public OutputControl(float amount, string address, string publicKey)
         {
             InitializeComponent();
 
             txtInputAmount.Text = amount.ToString("0.00000");
             txtInputAddress.Text = address;
-            txtPublicKey.Text = publicKey;
-            Height = 80;
-            Width = 310;
+            Height = 50;
+            Width = 380;
             HorizontalAlignment = HorizontalAlignment.Right;
             VerticalAlignment = VerticalAlignment.Top;
-
-            Thickness margin = this.Margin;
-            margin.Right = 0;
-            margin.Top = Height * index + 5;
-
-
-            this.Margin = margin;
+            
         }
     }
 }
